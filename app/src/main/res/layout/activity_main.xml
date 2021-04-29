@@ -11,8 +11,8 @@
         android:layout_width="40dp"
         android:layout_height="60dp"
         android:layout_marginEnd="10dp"
+        android:background="#A3A3A3"
         app:layout_constraintBottom_toBottomOf="@id/numberPicker1"
-
         app:layout_constraintEnd_toStartOf="@id/numberPicker1"
         app:layout_constraintTop_toTopOf="@id/numberPicker1" />
 
@@ -30,6 +30,7 @@
         android:id="@+id/numberPicker1"
         android:layout_width="30dp"
         android:layout_height="120dp"
+        android:background="#A3A3A3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/numberPicker2"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -40,6 +41,7 @@
         android:id="@+id/numberPicker2"
         android:layout_width="30dp"
         android:layout_height="120dp"
+        android:background="#A3A3A3"
         app:layout_constraintEnd_toStartOf="@id/numberPicker3"
         app:layout_constraintStart_toEndOf="@id/numberPicker1"
         app:layout_constraintTop_toTopOf="@id/numberPicker1" />
@@ -48,6 +50,7 @@
         android:id="@+id/numberPicker3"
         android:layout_width="30dp"
         android:layout_height="120dp"
+        android:background="#A3A3A3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/numberPicker2"
         app:layout_constraintTop_toTopOf="@id/numberPicker1" />
