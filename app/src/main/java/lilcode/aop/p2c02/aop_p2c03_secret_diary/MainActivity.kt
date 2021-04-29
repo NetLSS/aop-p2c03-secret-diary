@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 // 번호를 저장하는 기능
                 val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
 
-                passwordPreferences.edit(true){
+                passwordPreferences.edit(true) {
                     val passwordFromUser =
                         "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
                     putString("password", passwordFromUser)
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showErrorAlertDialog(){
+    private fun showErrorAlertDialog() {
         AlertDialog.Builder(this)
             .setTitle("실패!!")
             .setMessage("비밀번호가 잘못되었습니다.")
