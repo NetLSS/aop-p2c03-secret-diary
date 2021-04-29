@@ -1,6 +1,7 @@
 package lilcode.aop.p2c02.aop_p2c03_secret_diary
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -75,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
             // 패스워드 일치 하면
             if (passwordPreferences.getString("password", "000").equals(passwordFromUser)) {
-                // TODO 다이어리 페이지 open
-                //startActivity()
+                // 다이어리 엑티비티 실행
+                startActivity(Intent(this, DiaryActivity::class.java))
             } else {
                 showErrorAlertDialog()
             }
