@@ -86,36 +86,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
         changePasswordButton.setOnClickListener {
+            // changePasswodMode 활성화 :: 비밀번호가 맞는지를 체크
+            val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
+            // 여기 앱에서만 사용할 것이기 때문에 MODE_PRIVATE 로 사용
+            val passwordFromUser =
+                "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
 
             if (changePasswordMode) {
                 // 번호를 저장하는 기능
                 val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
 
-                // old code
-                //val editor = passwordPreferences.edit()
-
-                // new code (kotlin-ktx)
-//                passwordPreferences.edit{
-//                    val passwordFromUser =
-//                        "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
-//                    putString("password", passwordFromUser)
-//                    //commit : 저장 될때까지 대기
-//                    //apply : 비동기적으로. 넘어가도 좋다.
-//                    commit()
-//                }
                 passwordPreferences.edit(true){
                     val passwordFromUser =
                         "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
                     putString("password", passwordFromUser)
                 }
+
+                changePasswordMode = false
+
+                changePasswordButton.setBackgroundColor(Color.BLACK)
+
             } else {
-                // changePasswodMode 활성화 :: 비밀번호가 맞는지를 체크
-                val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
-                // 여기 앱에서만 사용할 것이기 때문에 MODE_PRIVATE 로 사용
-
-                val passwordFromUser =
-                    "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
-
                 if (passwordPreferences.getString("password", "000").equals(passwordFromUser)) {
                     changePasswordMode = true
                     Toast.makeText(this, "변경할 패스워드를 입력해주세요", Toast.LENGTH_SHORT).show()
