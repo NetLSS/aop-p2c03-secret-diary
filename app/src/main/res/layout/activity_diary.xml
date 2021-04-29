@@ -6,7 +6,8 @@
     android:padding="24dp"
     android:background="#3F51B5">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
+        android:textColor="@color/black"
         android:id="@+id/diaryEditText"
         android:background="@color/white"
         android:padding="10dp"
