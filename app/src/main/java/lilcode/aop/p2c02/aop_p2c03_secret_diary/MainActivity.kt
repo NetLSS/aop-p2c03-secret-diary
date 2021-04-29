@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val changePasswordButton: AppCompatButton by lazy {
-        findViewById<AppCompatButton>(R.id.openButton)
+        findViewById<AppCompatButton>(R.id.changePasswordButton)
     }
 
     private var changePasswordMode = false
