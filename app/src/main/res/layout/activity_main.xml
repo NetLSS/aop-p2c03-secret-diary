@@ -8,16 +8,16 @@
     tools:context=".MainActivity">
 
     <TextView
-        app:layout_constraintBottom_toTopOf="@id/passwordLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="The Screat Garden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/bm_font"
+        android:text="The Screat Garden"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginBottom="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintBottom_toTopOf="@id/passwordLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/passwordLayout"
@@ -25,14 +25,14 @@
         android:layout_height="wrap_content"
         android:background="#CDCDCD"
         android:padding="15dp"
-        app:layout_constraintVertical_bias="0.45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45">
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/openButton"
             android:layout_width="40dp"
             android:layout_height="60dp"
@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/numberPicker1" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changePasswordButton"
             android:layout_width="10dp"
             android:layout_height="10dp"
