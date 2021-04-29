@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="#CDCDCD"
         android:padding="15dp"
+        app:layout_constraintVertical_bias="0.45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
             android:background="#A3A3A3"
             app:layout_constraintBottom_toBottomOf="@id/numberPicker1"
             app:layout_constraintEnd_toStartOf="@id/numberPicker1"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/numberPicker1" />
 
         <Button
@@ -45,7 +47,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/numberPicker2"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/openButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <NumberPicker
