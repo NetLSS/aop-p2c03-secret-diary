@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.PersistableBundle
+import android.util.Log
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
@@ -34,10 +35,14 @@ class DiaryActivity : AppCompatActivity() {
                 putString("detail", diaryEditText.text.toString())
                 apply()
             }
+
+            Log.d("DiaryActivity", "SAVE!!! ${diaryEditText.text.toString()}")
         }
 
         // 수정 할때 마다 저장
         diaryEditText.addTextChangedListener {
+            Log.d("DiaryActivity", "TextChanged :: $it")
+
             handler.removeCallbacks(runnable) // 이전에 팬딩되어있는 runnable이 있다면 제거
             //몇 초 이후에 runnable을 실행
             handler.postDelayed(runnable, 500) // 0.5 초 이후에 실행
