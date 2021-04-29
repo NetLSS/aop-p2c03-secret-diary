@@ -15,7 +15,7 @@ class DiaryActivity : AppCompatActivity() {
 
     private val handler = Handler(Looper.getMainLooper()) // 메인 루퍼를 넣어주면 메인 스레드와 연결
 
-    private val _diaryEditText: EditText by lazy{
+    private val _diaryEditText: EditText by lazy {
         findViewById<EditText>(R.id.diaryEditText)
     }
 
@@ -29,9 +29,8 @@ class DiaryActivity : AppCompatActivity() {
         diaryEditText.setText(detailPreferences.getString("detail", ""))
 
 
-
         val runnable = Runnable {
-            getSharedPreferences("diary", Context.MODE_PRIVATE).edit{
+            getSharedPreferences("diary", Context.MODE_PRIVATE).edit {
                 putString("detail", diaryEditText.text.toString())
                 apply()
             }
