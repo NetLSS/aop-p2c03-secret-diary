@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<AppCompatButton>(R.id.changePasswordButton)
     }
 
-    private var changePasswordMode = false
+    private var changePasswordMode = false // 비밀번호 변경모드 상태
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +55,10 @@ class MainActivity : AppCompatActivity() {
         numberPicker2
         numberPicker3
 
+        // 다이어리 열기 버튼
         openButton.setOnClickListener {
 
+            // 비번 변경중에는 열지 못하도록
             if (changePasswordMode) {
                 Toast.makeText(this, "비밀번호 변경 중입니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener // 람다 펑션 영역에 해당하는 반환
@@ -64,22 +66,23 @@ class MainActivity : AppCompatActivity() {
 
             // 비밀 번호 데이터 저장에 사용될 수 있는 방식
             // 1. 로컬 db
-            // 2. 파일 (shared preferences 등)
+            // 2. 파일 (shared preferences 등) (이 앱에서는 이것을 사용)
             val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
             // 여기 앱에서만 사용할 것이기 때문에 MODE_PRIVATE 로 사용
 
             val passwordFromUser =
                 "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
 
+            // 패스워드 일치 하면
             if (passwordPreferences.getString("password", "000").equals(passwordFromUser)) {
-                // 패스워드 일치
-
                 // TODO 다이어리 페이지 open
                 //startActivity()
             } else {
                 showErrorAlertDialog()
             }
         }
+
+        // 비밀번호 변경 버튼
         changePasswordButton.setOnClickListener {
             // changePasswodMode 활성화 :: 비밀번호가 맞는지를 체크
             val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
@@ -91,6 +94,8 @@ class MainActivity : AppCompatActivity() {
                 // 번호를 저장하는 기능
                 val passwordPreferences = getSharedPreferences("password", Context.MODE_PRIVATE)
 
+                // 바로 커밋을 하기위해 edit(commit, )함수 사용 하여 첫 인자 true로
+                // 예전에는 개발자들이 commit을 안하고 해서 적용이 안되는 실수를 범하는 일이 많았음.
                 passwordPreferences.edit(true) {
                     val passwordFromUser =
                         "${numberPicker1.value}${numberPicker2.value}${numberPicker3.value}"
@@ -99,9 +104,10 @@ class MainActivity : AppCompatActivity() {
 
                 changePasswordMode = false
 
-                changePasswordButton.setBackgroundColor(Color.BLACK)
+                changePasswordButton.setBackgroundColor(Color.BLACK) // 적용 완료 시 색상
 
             } else {
+                // 패스워드 일치할 경우
                 if (passwordPreferences.getString("password", "000").equals(passwordFromUser)) {
                     changePasswordMode = true
                     Toast.makeText(this, "변경할 패스워드를 입력해주세요", Toast.LENGTH_SHORT).show()
@@ -114,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // 중복을 피하기 위해 따로 함수로 뺌
     private fun showErrorAlertDialog() {
         AlertDialog.Builder(this)
             .setTitle("실패!!")
