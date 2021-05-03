@@ -1,6 +1,6 @@
 # aop-part2-chapter03 - 비밀 다이어리
 
-
+저의 블로그에 작성된 세부 사항 [포스팅](https://whyprogrammer.tistory.com/572)을 통해 더욱 자세한 개발 진행 내용을 볼 수 있습니다.
 
 # 목차
 
